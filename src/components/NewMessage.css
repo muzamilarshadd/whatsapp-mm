@@ -1,0 +1,72 @@
+
+.new-message-dialog{
+	background-color: black;
+    position: absolute;
+    opacity: 0.2;
+    top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.msg-inner-div{
+    background: white;
+    position: absolute;
+    /* display: flex; */
+    top: 40%;
+    left: 40%;
+    right: 50%;
+    border-radius: 10px;
+    /* overflow: hidden; */
+    /* bottom: ; */
+    /* width: 2L?%; */
+    /* padding: 40px; */
+    padding-block-end: 10px;
+    padding-block-start: 10px;
+}
+.input-div{
+    /* border-radius: 5px; */
+    overflow: hidden;
+    width: 90%;
+    /* border: unset; */
+    border-top: white;
+    border-left: white;
+    border-right: white ;
+    /* border-bottom: black;
+    border-bottom: 10px; */
+    padding-bottom: 10%;
+    /* border */
+}
+.input-div:focus{
+    /* outline: unset; */
+    border-top: white;
+    border-left: white;
+    border-right: white ;
+    border-bottom: 2px solid mediumseagreen;
+
+}
+.input-div:focus-visible{
+    outline: unset;
+}
+.button-div{
+    display: flex;
+    padding-top: 10%;
+    justify-content: space-evenly;
+    
+}
+.button-cancel-div {
+    background: unset;
+	color: grey;
+	border: unset;
+}
+
+.button-create-div {
+    background: unset;
+	color: grey;
+	border: unset;
+}
+.button-cancel-div:hover{
+    background: red;
+} 
+.button-create-div:hover{
+    background: greenyellow;
+}

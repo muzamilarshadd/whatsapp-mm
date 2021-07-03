@@ -1,0 +1,29 @@
+.secondary-nav-bar{
+    height:  5%;
+	width:  100%;
+    padding-top: 1%;
+    /* margin-left: 400px; */
+	background-color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchicon{
+    background: unset;
+    border: unset;
+    float: right;
+    /* margin-inline-start: 750px; */
+}
+.menu-three-dot{
+    background: unset;
+	color: grey;
+	border: unset;
+    margin: unset;
+}
+
+.menu-three-dot:hover{
+    background: unset;
+}
+.buttons-div{
+    display: flex;
+}

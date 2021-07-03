@@ -1,0 +1,45 @@
+.main-nav-bar{
+	height:  5%;
+	/* width:  400px; */
+	background-color: whitesmoke;
+	/* border-bottom: 200px;
+	border-color: red; */
+	display: flex;
+	justify-content: space-between;
+	/* align-content: center; */
+}
+.status-button{
+	background: unset;
+	color: grey;
+	border: unset;
+	/* margin-left: 140px;
+	margin-top: 3px; */
+}
+.new-msg-button{
+
+	background: unset;
+	color: grey;
+	border: unset;
+	/* margin-top: 5.5px;
+	margin-left: 14px; */
+}
+
+.menu-three-dot{
+	background: unset;
+	color: grey;
+	border: unset;
+	/* margin-left: 8px;
+	margin-top: 3px; */
+}
+.display-pic-button{
+
+	background: unset;
+	color: grey;
+	border: unset;
+	/* margin-left: 15px; */
+	/* margin-right: 60px;
+	margin-top: 6px; */
+}
+.menu-three-dot:hover, .status-button:hover, .new-msg-button:hover{
+	background-color: rgb(204, 199, 199);
+}

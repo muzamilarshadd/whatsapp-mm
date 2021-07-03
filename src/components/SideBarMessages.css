@@ -1,0 +1,25 @@
+.message-card{
+    display: flex;
+    background: whitesmoke;
+    height: 15%;
+    padding-bottom: 1%;
+    padding-top: 0.5%;
+}
+
+.message-display-picture{
+    padding: 2%;
+    border-style: solid;
+    border-radius: 50%;
+    border-color: rgb(165, 157, 157);
+    background: rgb(228, 224, 224);
+    
+}
+
+.room-name-div{
+    padding-left: 3%;
+    padding-top: 1%;
+    font: bold;
+}
+.messages-box{
+    /* overflow: scroll; */
+}
