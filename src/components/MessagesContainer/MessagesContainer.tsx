@@ -1,19 +1,26 @@
-import React, { useEffect } from "react";
+import * as React from "react";
+import { useEffect } from 'react'
 import "./MessagesContainer.css";
-import SecondaryNavBar from "./SecondaryNavBar";
-import InputMessage from "./InputMessage";
-import MessagesDisplay from "./MessagesDisplay";
+import SecondaryNavBar from "../SecondaryNavBar/SecondaryNavBar";
+import InputMessage from "../InputMessage/InputMessage";
+import MessagesDisplay from "../MessagesDisplay/MessagesDisplay";
 
-function MessagesContainer({ show = "", message, setMessage = "" }) {
+function MessagesContainer({ 
+  show = 0,
+  message=[{id:0, name:"", messages:[]}],
+  setMessage = (temp:any) => {}
+ })
+  {
+  let Tempmessage :any = message //added later
   return (
-    <>
+    <div>
       <div className="main-container">
         {message.length > 1 &&
           message
             .filter((Tempmessage) => Tempmessage.id === show)
             .map((data, index) => {
               const { name, id, messages } = data;
-              const setMessages = (e) => {
+              const setMessages = (e:any) => {
                 if (id > 0) {
                   let temp = message;
                   for (var i = 0; i < temp.length; i++) {
@@ -28,19 +35,19 @@ function MessagesContainer({ show = "", message, setMessage = "" }) {
               };
               // setMessage()
               return (
-                <>
+                <div>
                   <SecondaryNavBar currentName={name} />
                   <MessagesDisplay message={messages} key={index}/>
                   <InputMessage
                     showId={id}
-                    data={data}
+                    data={[data]}
                     setMessage={setMessages}
                   />
-                </>
+                </div>
               );
             })}
       </div>
-    </>
+    </div>
   );
 }
 

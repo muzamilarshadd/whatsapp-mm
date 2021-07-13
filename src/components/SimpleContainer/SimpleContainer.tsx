@@ -1,16 +1,17 @@
-import React, {useState, useEffect} from "react";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Typography from "@material-ui/core/Typography";
-import Container from "@material-ui/core/Container";
-import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import SideBar from "./SideBar";
-import MessagesContainer from './MessagesContainer'
-import "./SimpleContainer.css";
+import * as React from "react"
+import {useState, useEffect} from 'react'
+import CssBaseline from "@material-ui/core/CssBaseline"
+import Typography from "@material-ui/core/Typography"
+import Container from "@material-ui/core/Container"
+// import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import SideBar from "../SideBar/SideBar"
+import MessagesContainer from '../MessagesContainer/MessagesContainer'
+import "./SimpleContainer.css"
 
 export default function SimpleContainer() {
   const [count, setCount] = useState(0)
-  const [showId, setShowId] = useState(0)
-  const [currentName, setCurrentName] = useState([{name : '', id: 0}])
+  const [showId, setShowId] = useState<any>()
+  const [currentName, setCurrentName] = useState<any>([{name : '', id: 0}])
   const [messagesStorage, setMessagesStorage] = useState([{
     id: currentName[0].id,
     name: currentName[0].name,
@@ -37,7 +38,7 @@ export default function SimpleContainer() {
           style={{ backgroundColor: "#ededed", height: "95.5vh" }}
         >
           <div className="container-div">
-            <SideBar setShowId={setShowId} setCurrentName={setCurrentName} currentName={currentName} setCount={setCount} count = {count}/>
+            <SideBar  setShowId={setShowId} setCurrentName={setCurrentName} currentName={currentName} setCount={setCount} count = {count}/>
             {/* <Divider orientation="vertical" flexItem /> */}
             {/* <SecondaryNavBar />        */}
             {showId > 0 &&

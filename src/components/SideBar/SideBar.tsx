@@ -1,34 +1,38 @@
-import React, { useState, useRef, useEffect } from "react";
-import "../App.css";
-import MainNavBar from "./MainNavBar";
+import * as React from "react";
+import { useState, useRef, useEffect } from "react"
+import "../../App.css";
+import MainNavBar from "../MainNavBar/MainNavBar";
 import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
 import ArrowBackOutlinedIcon from "@material-ui/icons/ArrowBackOutlined";
 import { Divider } from "@material-ui/core";
-import SideBarMessages from "./SideBarMessages";
+import SideBarMessages from "../SideBarMessages/SideBarMessages";
 
-function SideBar({
-  setShowId = "",
-  setCurrentName = "",
-  currentName = "",
-  setCount = "",
+function SideBar({ //extend to react.FC 
+  setShowId = (cc:any) => {},
+  setCurrentName = (a:any) => {},
+  currentName = [],
+  setCount = (count:any) => {},  //no arguments function || can type Void too
   count = 0,
 }) {
   const [show, setShow] = useState(0);
-  const [name, setName] = useState([]);
+  const [name, setName] = useState<any>([]); //too much states REDUCE their usage. only for value maintenanace too much rendering
 
   useEffect(() => {
+    console.log(currentName[0]['id'])
     if (name.length > 0 ) {
       setCurrentName([
         {
           name: name[0],
-          id: currentName[0].id + 1,
+          id: currentName[0]['id'] + 1,
         },
         ...currentName,
       ]);
       setCount(count + 1);
     }
   }, [name]);
-  const inputRef = useRef();
+  // const inputRef = React.useRef<HTMLInputElement>();
+  const inputRef = React.useRef() as React.MutableRefObject<HTMLInputElement>;
+
   return (
     <div className="Sidebar">
       <MainNavBar setName={setName} name={name} />
@@ -39,7 +43,7 @@ function SideBar({
               className="btnClick"
               onClick={() => {
                 setShow(1);
-                inputRef.current.focus();
+                inputRef.current!.focus();
               }}
             >
               <SearchOutlinedIcon />
@@ -72,14 +76,14 @@ function SideBar({
         {currentName.map((data, index) => {
 			const {name, id} = data
           return (
-            <>
+            <div>
 			{id > 0 &&
-			<>
+			<div>
               <SideBarMessages name={name} key={index} setShow={setShowId} id = {id}/>
               <Divider />
-			  </>
+			  </div>
 			}
-            </>
+            </div>
           );
         })}
       </div>

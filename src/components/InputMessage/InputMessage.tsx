@@ -1,16 +1,25 @@
-import React,{useState} from "react";
+import * as React from "react";
+import {useState} from 'react'
 import "./InputMessage.css";
-function InputMessage({ showId = "", data = "", setMessage = "" }) {
-  let tempArr = data;
+// import { ReactComponent as AttachmentIcon }  from "../../components/icons/ic_attachment.svg" //webpack etc
+function InputMessage({ 
+  showId = 0, 
+  data = [{ id: 0, name: "", messages:[""] }], 
+  setMessage = (tempArr:any) => {} 
+}) 
+{
+  let tempArr:any = data;
   const [tempMessage, setTempMessage] = useState("");
 
   const formSubmit = () => {
-      tempArr.messages = [tempMessage, ... tempArr.messages]
+      tempArr.messages = [tempMessage, ...tempArr.messages]
     setMessage(tempArr)
+    // e.target.reset()
+     setTempMessage("")
   };
   return (
     <div className="main-div">
-      <div>
+      
         <button className="emoji-button">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -26,30 +35,23 @@ function InputMessage({ showId = "", data = "", setMessage = "" }) {
           </svg>
         </button>
         <button className="attach-button">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none" />
-            <path d="M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v10.5c0 .55-.45 1-1 1s-1-.45-1-1V6H10v9.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z" />
-          </svg>
+         {/* <AttachmentIcon /> */}
+        Attach
         </button>
-      </div>
+      
       <input
         className="input-field"
         type="text"
         placeholder="Type a new message"
         onChange={(e) => setTempMessage(e.target.value)}
+        value={tempMessage}
       />
       <button className="send-button" type="submit" onClick={formSubmit}>
         Send
       </button>
       <div>
         <button className="mic-button">
-          <svg
+          <svg 
             xmlns="http://www.w3.org/2000/svg"
             enable-background="new 0 0 24 24"
             height="24px"

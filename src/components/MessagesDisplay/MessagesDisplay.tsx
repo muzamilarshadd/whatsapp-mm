@@ -1,8 +1,8 @@
-import React from 'react'
+import * as React from 'react'
 import './MessagesDisplay.css'
 
 function MessagesDisplay({
-    message = ''
+    message = []
 }) {
     let tempMsgg =  message.reverse()
     return (

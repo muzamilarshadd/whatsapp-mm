@@ -1,12 +1,19 @@
-import React from "react";
+import * as React from "react";
 import "./SideBarMessages.css";
 
-function SideBarMessages({ name = "", setShow = '', id=0,}) {
+function SideBarMessages(
+  { 
+    name = "", 
+    setShow = (cc:any)=>{},
+    id=0,
+  }) 
+  {
     
   return (
-    <>
+    <div>
       <div className="messages-box" onClick={()=>{
           setShow(id)
+          // console.log(id)
       }}>
         <div className="message-card">
           <div className="message-display-picture">
@@ -26,7 +33,7 @@ function SideBarMessages({ name = "", setShow = '', id=0,}) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
