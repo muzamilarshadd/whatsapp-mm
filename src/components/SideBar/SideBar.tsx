@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState, useRef, useEffect } from "react"
-import "../../App.css";
+import "./SideBar.css";
 import MainNavBar from "../MainNavBar/MainNavBar";
 import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
 import ArrowBackOutlinedIcon from "@material-ui/icons/ArrowBackOutlined";

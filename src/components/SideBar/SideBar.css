@@ -1,0 +1,89 @@
+.divider-side-bar{
+    width: 60%
+    
+  }
+  .messages-all{
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    /* height: 80%; */
+    flex: 1;
+  }
+  .messages-all::-webkit-scrollbar{
+    width: 4px; 
+  
+  }
+  .messages-all::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+    border-radius: 20px;
+  }
+  .messages-all::-webkit-scrollbar-thumb:hover {
+    background: rgb(66, 64, 64); 
+  }
+  
+  .Sidebar {
+    height:  100%;
+    width:  33%;
+    background-color: cadetblue;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    }
+  .form-center {
+    position: inherit;
+    margin: 5px;
+  /*  width: 400px;
+  */  margin-bottom: 5px;
+  /*  margin-top:  5px;
+  */  margin-left: 0px;
+    box-sizing: border-box;
+    background-image: url(https://www.pngix.com/pngfile/middle/285-2854794_vector-search-icon-search-icon-vector-png-transparent.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 55px !important; 
+    border-radius:  20px !important;
+  }
+
+.form-container {
+    padding:  10px;
+    background-color:  #f6f6f6;
+    /* height: 10%; */
+    overflow: hidden;
+  
+  }
+  
+  .input-container {
+    background-color: white;
+    border:  unset;
+    /* width: 100%; */
+    display: flex;
+    padding:  8px;
+    /* width: 382px; */
+    align-items: center;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+.btnClick {
+    background-color: unset;
+    border:  unset;
+    width: 13%;
+  }
+.form-class {
+  
+    background-color: unset;
+    border:  unset;
+    width: 87%;
+}
+.form-class:focus-visible{
+    outline: none;
+}
+
+.custom-color {
+    color:  #4fc3fc;
+  /*  transform:  rotate(270deg);
+    transition:  transform 0.3s linear !important;
+  */
+    transition-property: rotate(180deg);
+    transition-duration: 1s;
+  }

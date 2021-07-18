@@ -13,7 +13,6 @@ function MessagesContainer({
   {
   let Tempmessage :any = message //added later
   return (
-    <div>
       <div className="main-container">
         {message.length > 1 &&
           message
@@ -35,19 +34,19 @@ function MessagesContainer({
               };
               // setMessage()
               return (
-                <div>
+                <>
                   <SecondaryNavBar currentName={name} />
                   <MessagesDisplay message={messages} key={index}/>
                   <InputMessage
                     showId={id}
-                    data={[data]}
+                    data={data}
                     setMessage={setMessages}
                   />
-                </div>
+                </>
               );
             })}
       </div>
-    </div>
+    
   );
 }
 

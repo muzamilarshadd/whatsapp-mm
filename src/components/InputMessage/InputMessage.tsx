@@ -2,13 +2,24 @@ import * as React from "react";
 import {useState} from 'react'
 import "./InputMessage.css";
 // import { ReactComponent as AttachmentIcon }  from "../../components/icons/ic_attachment.svg" //webpack etc
+interface msg  {
+  id:number,
+  name:string,
+  messages:Array<string>,
+
+}
 function InputMessage({ 
   showId = 0, 
-  data = [{ id: 0, name: "", messages:[""] }], 
+  data = {id: 0, name: '',messages: []}, 
   setMessage = (tempArr:any) => {} 
 }) 
 {
-  let tempArr:any = data;
+
+  let tempArr:msg = {
+    id: data.id,
+    name: data.name,
+    messages: data.messages,
+  };
   const [tempMessage, setTempMessage] = useState("");
 
   const formSubmit = () => {
