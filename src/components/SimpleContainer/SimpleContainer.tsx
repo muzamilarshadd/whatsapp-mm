@@ -1,5 +1,5 @@
 import * as React from "react"
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext } from 'react'
 import CssBaseline from "@material-ui/core/CssBaseline"
 import Typography from "@material-ui/core/Typography"
 import Container from "@material-ui/core/Container"
@@ -7,16 +7,38 @@ import Container from "@material-ui/core/Container"
 import SideBar from "../SideBar/SideBar"
 import MessagesContainer from '../MessagesContainer/MessagesContainer'
 import "./SimpleContainer.css"
+import { ThemeContext, ThemeProps } from "../../contexts/ThemeContext";
 
-export default function SimpleContainer() {
-  const [count, setCount] = useState(0)
-  const [showId, setShowId] = useState<any>()
-  const [currentName, setCurrentName] = useState<any>([{name : '', id: 0}])
+export interface Name {
+  id: number;
+  name: string;
+}
+
+const SimpleContainer : React.FC = () => {
+  const theme = useContext<ThemeProps>(ThemeContext);
+  const [count, setCount] = useState<number>(0);
+  const [showId, setShowId] = useState<number>(0);
+  const [currentName, setCurrentName] = useState< Name [] >([{name : '', id: 0}]);
   const [messagesStorage, setMessagesStorage] = useState([{
     id: currentName[0].id,
     name: currentName[0].name,
     messages: [],
-  }])
+  }]);
+
+  const setCurrentNameHandler = ( idParam: number, currentNameParam : string ) => {
+    setCurrentName([
+      {
+        id: idParam,
+        name: currentNameParam,
+      },
+      ...currentName,
+    ]);
+  };
+
+  const setCountHandler =  ( countParam : number) => {
+    setCount( countParam );
+  };
+
   useEffect(()=>{
     if(count > 0) {
     setMessagesStorage([{
@@ -24,7 +46,9 @@ export default function SimpleContainer() {
       name: currentName[0].name,
       messages: [],
     },...messagesStorage])}
-  },[currentName])
+  },[currentName]);
+
+
   return ( 
     <React.Fragment>
       <CssBaseline />
@@ -37,21 +61,16 @@ export default function SimpleContainer() {
           component="div"
           style={{ backgroundColor: "#ededed", height: "95.5vh" }}
         >
-          <div className="container-div">
-            <SideBar  setShowId={setShowId} setCurrentName={setCurrentName} currentName={currentName} setCount={setCount} count = {count}/>
-            {/* <Divider orientation="vertical" flexItem /> */}
-            {/* <SecondaryNavBar />        */}
+          <div className={ theme.theme === "dark" ? "container-div-dark" :"container-div" }>
+            <SideBar  setShowId={setShowId} setCurrentName={setCurrentNameHandler} currentName={currentName} setCount={setCountHandler} count = {count}/>
             {showId > 0 &&
             <MessagesContainer show={showId} message={messagesStorage} setMessage={setMessagesStorage}/>
             }
           </div>
-          {/* <Divider orientation="vertical" flexItem />
-        <NavigationBar />
-        <Divider />
-        <SideBar />
-        <Divider orientation="vertical" flexItem /> */}
         </Typography>
       </Container>
     </React.Fragment>
   );
-}
+};
+
+export default SimpleContainer;

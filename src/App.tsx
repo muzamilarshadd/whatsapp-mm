@@ -1,15 +1,19 @@
 import './App.css';
 import SimpleContainer from './components/SimpleContainer/SimpleContainer'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import * as React from 'react'
+import * as React from 'react';
+
+import { ThemeProvider } from "./contexts/ThemeContext";
 
 function App() {
+
   return (
 
-    <div className="App">
-    <SimpleContainer />
-
-    </div>
+      <ThemeProvider>
+        <div className="App">
+          <SimpleContainer />
+        </div>
+      </ThemeProvider>
     )
 }
 

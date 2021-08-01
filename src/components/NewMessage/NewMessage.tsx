@@ -17,9 +17,8 @@ function NewMessage({
 		setShow(0)
 	}
     function handleCreate() {
-        // alert('name')
-        setName([tempName, ...name])
-        console.log("Move it",tempName)
+        setName([tempName, ...name]);
+        console.log("Move it",tempName);
         handleNewMessageCancel()//check if it runs 
     }
     return (

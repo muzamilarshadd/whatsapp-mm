@@ -1,5 +1,11 @@
 .container-div{
     display: flex;
     height: 100%;
+}
 
+.container-div-dark {
+    display: flex;
+    height: 100%;
+    background-color: black;
+    color: white;
 }

@@ -36,7 +36,7 @@ function MessagesContainer({
               return (
                 <>
                   <SecondaryNavBar currentName={name} />
-                  <MessagesDisplay message={messages} key={index}/>
+                  <MessagesDisplay message={messages} key={index} />
                   <InputMessage
                     showId={id}
                     data={data}
